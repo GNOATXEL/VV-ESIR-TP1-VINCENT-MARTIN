@@ -11,3 +11,10 @@
 5.  Shortly after the appearance of WebAssembly another paper proposed a mechanized specification of the language using Isabelle. The paper can be consulted here: https://www.cl.cam.ac.uk/~caw77/papers/mechanising-and-verifying-the-webassembly-specification.pdf. This mechanized specification complements the first formalization attempt from the paper. According to the author of this second paper, what are the main advantages of the mechanized specification? Did it help improving the original formal specification of the language? What other artifacts were derived from this mechanized specification? How did the author verify the specification? Does this new specification removes the need for testing?
 
 ## Answers
+
+1. Le 4 juin 1996. Après 36,7 secondes de vol, les fortes accélérations produites par la trajectoire de la fusée Ariane 5 provoquent un dépassement d’entier dans les registres mémoire du système de guidage inertiel principal, qui est immédiatement mis hors service. Le système de guidage de secours, identique au système principal, subit les mêmes effets et s'arrête à la même seconde. Le pilote automatique, qui s'appuie sur les informations de ces systèmes de guidage inertiel, n'a alors plus aucun moyen de contrôler la fusée.
+La fusée a explosé à 4 000 mètres d'altitude au-dessus du centre spatial de Kourou, en Guyane française. Aucune victime n'est à déplorer, mais les quatre satellites de la mission Cluster qui se trouvaient à bord de la fusée sont partis en fumée lors de l'explosion.
+C'était un bug global, une erreur de réutilisation. Un composant fonctionnel pour Ariane 4 avait été réutilisé.
+Coûts engendrés : 370 millions de dollars.
+Si on avait testé dans les bonnes conditions, en ayant recalculé les valeurs pour Ariane 5 et cet ancien composant, on aurait vite remarqué l'erreur.
+
