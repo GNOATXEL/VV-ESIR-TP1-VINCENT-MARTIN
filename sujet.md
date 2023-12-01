@@ -18,3 +18,6 @@ C'était un bug global, une erreur de réutilisation. Un composant fonctionnel p
 Coûts engendrés : 370 millions de dollars.
 Si on avait testé dans les bonnes conditions, en ayant recalculé les valeurs pour Ariane 5 et cet ancien composant, on aurait vite remarqué l'erreur.
 
+2.NullPointerException in MapUtils.toProperties, https://issues.apache.org/jira/projects/COLLECTIONS/issues/COLLECTIONS-516?filter=doneissues
+Le bug ici était présent dans la bibliothèque "util". Le bug détecté est que lors d'un appel de la fonction MapUtils.toProperties, si le contenu de notre map est une entrée null, alors ce dernier renverra une erreur NullPointerException. Néanmoins, la javadoc ne stipule pas cela et indique plutôt que cela renverra une Properties null. Ainsi, on a ici un bug global (si on considère l'utilisation des entrées null dans un map comme étant fréquente). Il y avait deux solutions possibles, soit bien stipuler cela dans la javadoc soit y ajouter une vérification. La solution de la vérification a été jugée par les contributeurs comme cachant les mauvaises utilisations de la fonction. Ainsi, uniquement la javadoc a été modifiée afin de stipuler cette erreur. Vu les modifications pour "régler" le bug, il n'y a certainement aucun test qui a été écrit.
+
