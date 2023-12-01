@@ -19,5 +19,45 @@ Coûts engendrés : 370 millions de dollars.
 Si on avait testé dans les bonnes conditions, en ayant recalculé les valeurs pour Ariane 5 et cet ancien composant, on aurait vite remarqué l'erreur.
 
 2.NullPointerException in MapUtils.toProperties, https://issues.apache.org/jira/projects/COLLECTIONS/issues/COLLECTIONS-516?filter=doneissues
-Le bug ici était présent dans la bibliothèque "util". Le bug détecté est que lors d'un appel de la fonction MapUtils.toProperties, si le contenu de notre map est une entrée null, alors ce dernier renverra une erreur NullPointerException. Néanmoins, la javadoc ne stipule pas cela et indique plutôt que cela renverra une Properties null. Ainsi, on a ici un bug global (si on considère l'utilisation des entrées null dans un map comme étant fréquente). Il y avait deux solutions possibles, soit bien stipuler cela dans la javadoc soit y ajouter une vérification. La solution de la vérification a été jugée par les contributeurs comme cachant les mauvaises utilisations de la fonction. Ainsi, uniquement la javadoc a été modifiée afin de stipuler cette erreur. Vu les modifications pour "régler" le bug, il n'y a certainement aucun test qui a été écrit.
+Le bug ici était présent dans la bibliothèque "util". Le bug détecté est le suivant :  lors d'un appel de la fonction MapUtils.toProperties, si le contenu de notre map est une entrée null, alors cette fonction renverra une erreur NullPointerException. Néanmoins, la javadoc ne stipule pas cela et indique plutôt que cela renverra une Properties null. Ainsi, on a ici un bug global (si on considère l'utilisation des entrées null dans un map comme étant fréquente). Il y avait deux solutions possibles, soit bien stipuler cela dans la javadoc soit y ajouter une vérification. La solution de la vérification a été jugée par les contributeurs comme cachant les mauvaises utilisations de la fonction. Ainsi, uniquement la javadoc a été modifiée afin de stipuler cette erreur. Vu les modifications pour "régler" le bug, il n'y a certainement aucun test qui a été écrit.
+
+3.Quelques exemples d'expériences courantes chez Netflix :
+a) Mettre fin à des instances de machines virtuelles.
+- Variables observées :
+    Temps de redémarrage des instances.
+    Impact sur la disponibilité des services.
+- Principaux résultats :
+    Évaluation de la résilience des services face à la perte d'instances.
+    Mesure de la récupération et de la répartition de la charge de travail sur d'autres instances.
+b) Injecter de la latence dans les demandes entre services
+- Variables observées :
+    Temps de réponse des services.
+    Taux d'erreur ou de défaillance des requêtes.
+- Principaux résultats :
+    Évaluation de la tolérance aux retards des services.
+    Analyse de la performance des mécanismes de réplication et de récupération des données.
+c) Faire échouer les demandes entre les services
+- Variables observées :
+    Taux d'échec des requêtes.
+    Temps de récupération des services.
+- Principaux résultats :
+    Vérification de la résilience des services face à des défaillances.
+    Évaluation de la fiabilité des mécanismes de détection et de gestion des erreurs.
+d) Faire échouer un service interne
+- Variables observées :
+    Impact sur les autres services dépendant du service en panne.
+    Temps de reprise ou de basculement vers des mécanismes de secours.
+- Principaux résultats :
+    Mesure de la capacité à isoler les pannes et à éviter la propagation des erreurs.
+    Évaluation de la robustesse des solutions de basculement.
+e) Rendre indisponible une région Amazon entière
+- Variables observées :
+    Temps de basculement vers des régions de secours.
+    Impact sur la disponibilité globale des services.
+- Principaux résultats :
+    Évaluation de la résilience face à des défaillances majeures d'infrastructure.
+    Vérification de l'efficacité des stratégies de récupération et de reprise sur des sites distants.
+
+Netflix n'est certainement pas la seule organisation à utiliser une telle méthode. Google, Apple et Amazon, parmi tant d'autres, font appel à cette pratique. 
+On pourrait imaginer chez eux des coupures des serveurs afin d'observer la récupération des données, la synchronisation des appareils et les réactions des apps, ou bien des retards entre centres de données pour évaluer la latence des services, les erreurs des requêtes et la migration du trafic.
 
