@@ -74,3 +74,16 @@ e) Rendre indisponible une région Amazon entière
 Netflix n'est certainement pas la seule organisation à utiliser une telle méthode. Google, Apple et Amazon, parmi tant d'autres, font appel à cette pratique. 
 On pourrait imaginer chez eux des coupures des serveurs afin d'observer la récupération des données, la synchronisation des appareils et les réactions des apps, ou bien des retards entre centres de données pour évaluer la latence des services, les erreurs des requêtes et la migration du trafic.
 
+### 4. 
+
+Il y a plusieurs avantages principaux à avoir une spécification formelle pour WebAssembly:
+
+Interopérabilité: Avoir une spécification formelle signifie qu'il existe une définition précise et non ambiguë du langage WebAssembly. Cela garantit l'interopérabilité entre les différentes implémentations de WebAssembly sur divers navigateurs ou environnements d'exécution. Les développeurs peuvent être certains que le code fonctionnera de la même manière partout.
+
+Sécurité: La spécification formelle permet d'analyser plus en détail les propriétés de sécurité du langage, ce qui est important étant donné qu'il s'agit d'un langage de bas niveau exécuté dans les navigateurs. Cela aide à identifier et corriger les vulnérabilités potentielles.
+
+Ouverture: Quiconque peut implémenter WebAssembly en se basant sur la spécification ouverte, ce qui favorise l'innovation et la concurrence. De nouveaux outils et environnements d'exécution peuvent être développés indépendamment.
+
+Bien que la spécification formelle soit importante, cela ne signifie pas que les implémentations de WebAssembly ne devraient pas être testées. Au contraire, des tests rigoureux sont toujours nécessaires pour s'assurer que chaque implémentation est conforme à la spécification et ne présente pas de bugs. C'est la seule façon de garantir la qualité et la fiabilité du langage.
+
+### 5.
