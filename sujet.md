@@ -85,12 +85,17 @@ On pourrait imaginer chez eux des coupures des serveurs afin d'observer la récu
 
 Il y a plusieurs avantages principaux à avoir une spécification formelle pour WebAssembly:
 
-Interopérabilité: Avoir une spécification formelle signifie qu'il existe une définition précise et non ambiguë du langage WebAssembly. Cela garantit l'interopérabilité entre les différentes implémentations de WebAssembly sur divers navigateurs ou environnements d'exécution. Les développeurs peuvent être certains que le code fonctionnera de la même manière partout.
+Interopérabilité: Avoir une spécification formelle signifie qu'il existe une définition précise et non ambiguë du langage WebAssembly. On garantit l'interopérabilité entre les différentes implémentations de WebAssembly. Les développeurs peuvent être certains que le code fonctionnera de la même manière partout.
 
 Sécurité: La spécification formelle permet d'analyser plus en détail les propriétés de sécurité du langage, ce qui est important étant donné qu'il s'agit d'un langage de bas niveau exécuté dans les navigateurs. Cela aide à identifier et corriger les vulnérabilités potentielles.
 
 Ouverture: Quiconque peut implémenter WebAssembly en se basant sur la spécification ouverte, ce qui favorise l'innovation et la concurrence. De nouveaux outils et environnements d'exécution peuvent être développés indépendamment.
 
-Bien que la spécification formelle soit importante, cela ne signifie pas que les implémentations de WebAssembly ne devraient pas être testées. Au contraire, des tests rigoureux sont toujours nécessaires pour s'assurer que chaque implémentation est conforme à la spécification et ne présente pas de bugs. C'est la seule façon de garantir la qualité et la fiabilité du langage.
+Bien que la spécification formelle soit importante, cela ne signifie pas que les implémentations de WebAssembly ne devraient pas être testées. Des tests rigoureux sont toujours nécessaires pour s'assurer que chaque implémentation est conforme à la spécification et ne présente pas de bugs. C'est la seule façon de garantir la qualité et la fiabilité du langage.
 
 ### 5.
+
+Selon l'auteur du document, un point positif majeur de la specification mecanisée serait la possibilité de vérifier automatiquement si la specification est respectée, avec par exemple des artefacts comme un interpreteur executable, ou bien un type-checker exectutable. Cela permet donc d'accélerer grandement cette vérification. Il est aussi expliqué que la mécanisation permet d'améliorer plus facilement la spécification, et facilite également la détection d'erreurs dans celle-ci. De nombreux autres points positifs sont exposés dans le document.
+On a effectivement pu améliorer la spécification grâce à cette mécanisation grâce au repérage facilité d'erreurs (on trouve un exemple Figure 9), rendant la spécification plus "sound" (sensée, fiable), mais également la collaboration a été rendue plus simple par rapport à la spécification "manuscrite".
+
+Néanmoins, tout cela ne supprime pas la nécessité de tester. Bien qu'une meilleure qualité de code soit garantie par cette spécification améliorée, on ne couvre pas tous les scenarii possibles, qui peuvent être aussi basiques qu'une simple erreur d'implémentation, ou autre.
