@@ -12,6 +12,8 @@
 
 ## Answers
 
+TP1 de Axel MARTIN et Théo VINCENT
+
 ### 1.
 Le 4 juin 1996. Après 36,7 secondes de vol, les fortes accélérations produites par la trajectoire de la fusée Ariane 5 provoquent un dépassement d’entier dans les registres mémoire du système de guidage inertiel principal, qui est immédiatement mis hors service. Le système de guidage de secours, identique au système principal, subit les mêmes effets et s'arrête à la même seconde. Le pilote automatique, qui s'appuie sur les informations de ces systèmes de guidage inertiel, n'a alors plus aucun moyen de contrôler la fusée.
 La fusée a explosé à 4 000 mètres d'altitude au-dessus du centre spatial de Kourou, en Guyane française. Aucune victime n'est à déplorer, mais les quatre satellites de la mission Cluster qui se trouvaient à bord de la fusée sont partis en fumée lors de l'explosion.
@@ -20,8 +22,13 @@ Coûts engendrés : 370 millions de dollars.
 Si on avait testé dans les bonnes conditions, en ayant recalculé les valeurs pour Ariane 5 et cet ancien composant, on aurait vite remarqué l'erreur.
 
 ### 2.
-NullPointerException in MapUtils.toProperties, https://issues.apache.org/jira/projects/COLLECTIONS/issues/COLLECTIONS-516?filter=doneissues
-Le bug ici était présent dans la bibliothèque "util". Le bug détecté est le suivant :  lors d'un appel de la fonction MapUtils.toProperties, si le contenu de notre map est une entrée null, alors cette fonction renverra une erreur NullPointerException. Néanmoins, la javadoc ne stipule pas cela et indique plutôt que cela renverra une Properties null. Ainsi, on a ici un bug global (si on considère l'utilisation des entrées null dans un map comme étant fréquente). Il y avait deux solutions possibles, soit bien stipuler cela dans la javadoc soit y ajouter une vérification. La solution de la vérification a été jugée par les contributeurs comme cachant les mauvaises utilisations de la fonction. Ainsi, uniquement la javadoc a été modifiée afin de stipuler cette erreur. Vu les modifications pour "régler" le bug, il n'y a certainement aucun test qui a été écrit.
+Il y avait un problème dans la bibliothèque "util", plus précisément dans la fonction MapUtils.toProperties, https://issues.apache.org/jira/projects/COLLECTIONS/issues/COLLECTIONS-516?filter=doneissues.
+
+Le bug identifié était le suivant : lorsqu'on appelait la fonction MapUtils.toProperties avec une map contenant une entrée null, cela provoquait une erreur de type NullPointerException. Cependant, la javadoc de la fonction ne mentionnait pas ce comportement et indiquait plutôt que la fonction renverrait une Properties null. Ainsi, il s'agissait d'un bug global, surtout si l'on considère que l'utilisation d'entrées null dans une map est courante.
+
+Deux solutions étaient envisageables pour résoudre ce problème : soit clarifier explicitement ce comportement dans la javadoc, soit ajouter une vérification pour traiter les entrées null. Les contributeurs ont jugé que la solution de la vérification masquerait les utilisations incorrectes de la fonction, et par conséquent, seule la javadoc a été modifiée pour refléter ce comportement inattendu.
+
+Compte tenu de ces modifications visant à "résoudre" le bug, il est probable qu'aucun test n'ait été ajouté pour valider ces changements.
 
 ### 3.
 Quelques exemples d'expériences courantes chez Netflix :
