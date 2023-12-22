@@ -97,5 +97,6 @@ Bien que la spécification formelle soit importante, cela ne signifie pas que le
 
 Selon l'auteur du document, un point positif majeur de la specification mecanisée serait la possibilité de vérifier automatiquement si la specification est respectée, avec par exemple des artefacts comme un interpreteur executable, ou bien un type-checker exectutable. Cela permet donc d'accélerer grandement cette vérification. Il est aussi expliqué que la mécanisation permet d'améliorer plus facilement la spécification, et facilite également la détection d'erreurs dans celle-ci. De nombreux autres points positifs sont exposés dans le document.
 On a effectivement pu améliorer la spécification grâce à cette mécanisation grâce au repérage facilité d'erreurs (on trouve un exemple Figure 9), rendant la spécification plus "sound" (sensée, fiable), mais également la collaboration a été rendue plus simple par rapport à la spécification "manuscrite".
+Cette mécanisation a été validée à l'aide de tests de conformités officiels WebAssembly et du fuzzing.
 
 Néanmoins, tout cela ne supprime pas la nécessité de tester. Bien qu'une meilleure qualité de code soit garantie par cette spécification améliorée, on ne couvre pas tous les scenarii possibles, qui peuvent être aussi basiques qu'une simple erreur d'implémentation, ou autre.
